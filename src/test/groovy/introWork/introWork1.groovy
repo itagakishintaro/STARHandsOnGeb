@@ -1,17 +1,13 @@
 package introWork
 
-import org.junit.Before;
 import org.junit.Test
-import org.openqa.selenium.chrome.ChromeDriver
-
 import geb.Browser
 
 class introWork1{	
 	@Test
-	def void "入門課題その2:「クリックしてみよう」"(){
+	def void "入門課題その1 「動かしてみよう、Selenium」"(){
 		Browser.drive {
-			go "file:///Users/itagakishintarou/git/StarHandsOnGeb/introWork/introWork2.html"
-			$("#ok_button").click()
+			go "file:///Users/itagakishintarou/git/StarHandsOnGeb/introWork/introWork1.html"
 			report 'introwWork1'
 		}
 	}
