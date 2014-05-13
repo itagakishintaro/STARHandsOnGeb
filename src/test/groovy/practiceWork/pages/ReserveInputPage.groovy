@@ -5,57 +5,47 @@ import geb.Page
 class ReserveInputPage extends Page{
 	static url = "file:///Users/itagakishintarou/git/StarHandsOnGeb/reserveApp/index.html"
 	
-	def setReserveYear(year) {
-		$("#reserve_year").value(year)
+	static content = {
+        reserveYear { $("#reserve_year") }
+        reserveMonth { $("#reserve_month") }
+        reserveDay  { $("#reserve_day") }
+        reserveTerm { $("#reserve_term") }
+        headCount { $("#headcount") }
+        breakfastOn { $("#breakfast_on") }
+        breakfastOff { $("#breakfast_off") }
+        planA { $("#plan_a") }
+        planB { $("#plan_b") }
+        guestName { $("#guestname") }
+        //goToNext(to: ReserveConfirmPage) { $("#goto_next").click() }
     }
-
-    def setReserveMonth(month) {
-		$("#reserve_month").value(month)
-    }
-    
-    def setReserveDay(day) {
-		$("#reserve_day").value(day)
-    }
-
-    def setReserveDate(year, month, day) {
-        setReserveYear(year)
-        setReserveMonth(month)
-        setReserveDay(day)
-    }
-
-	def setReserveTerm(reserveTerm) {
-		$("#reserve_term").value(reserveTerm)
+	
+	def setReserveDate(year, month, day) {
+		reserveYear = year
+		reserveMonth = month 
+		reserveDay = day
 	}
-
-	def setHeadCount(headCount) {
-		$("#headcount").value(headCount)
-	}
-
+	
 	def setBreakfast(on) {
 		if (on) {
-			$("#breakfast_on").click()
+			breakfastOn.click()
 		} else {
-			$("#breakfast_off").click()
+			breakfastOff.click()
 		}
 	}
 
 	def setPlanA(checked) {
-		if ($("#plan_a").value() != checked) {
-			$("#plan_a").click()
+		if (planA.value() != checked) {
+			planA.click()
 		}
 	}
 
 	def setPlanB(checked) {
-		if ($("#plan_b").value() != checked) {
-			$("#plan_b").click()
+		if (planB.value() != checked) {
+			planB.click()
 		}
 	}
-
-	def setGuestName(guestName) {
-		$("#guestname").value(guestName)
-	}
-
-	public ReserveConfirmPage goToNext() {
+	
+	def ReserveConfirmPage goToNext() {
 		$("#goto_next").click()
 		return new ReserveConfirmPage()
 	}
