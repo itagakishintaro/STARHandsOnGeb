@@ -3,7 +3,7 @@ package introWork
 import org.junit.Test
 import geb.Browser
 
-class introWork5{
+class IntroWork5{
 	@Test
 	def void "入門課題その5 「チェックボックスを選択してみよう」"(){
 		Browser.drive {
@@ -11,7 +11,7 @@ class introWork5{
 			if(!$("#allowed_check").value()){
 				$("#allowed_check").click()
 			}
-			report 'introwWork5'
+			report 'IntrowWork5'
 		}
 	}
 }
